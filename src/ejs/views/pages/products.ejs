@@ -1,0 +1,28 @@
+<%- include('../partials/head') %>
+<% if(sinProductos){ %>
+<div class="container mt-5">
+    <div class="alert alert-danger">No hay productos en el inventario</div>
+    <a href="/" class="btn btn-info mx-auto mt-10 text-white">Back to Form</a>
+</div>    
+<% } else{ %>
+    <div class="container mt-5">
+        <table class="table table-info table-striped table bordered text-center">
+            <thead class=" text-white">
+                <th class="bg-info"><h4>Item</h4></th>
+                <th class="bg-info"><h4>Precio<h4></th>
+                <th class="bg-info"><h4>Imagen<h4></th>
+            </thead>
+            <tbody>
+                <% productos.forEach((item) =>{ %>
+                    <tr scope="row">
+                    <td>  <%= item.title %> </td>
+                    <td> $<%= item.price %> </td>
+                    <td>  <%= item.thumbnail %> </td>                       
+                    </tr>
+                <%})%>
+            </tbody>
+        </table>
+        <a href="/" class="btn btn-info mx-auto mt-10 text-white">Back to Form</a>
+    </div>
+<% } %>
+

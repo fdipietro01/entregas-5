@@ -1,0 +1,26 @@
+extends ../layout/head.pug
+
+block contenido
+    if sinProductos
+        div(class="container mt-5")
+            div(class="alert alert-danger") No hay productos en el inventario
+            a(href="/" class="btn btn-info mx-auto mt-10 text-white") Back to Form
+    else
+        div(class="container mt-5")
+            table(class="table table-info table-striped table bordered text-center")
+                thead(class="text-white")
+                    th(class="bg-info")
+                        h4 Item
+                    th(class="bg-info")
+                        h4 Precio
+                    th(class="bg-info")
+                        h4 Imagen
+                tbody 
+                    each val in productos
+                        tr(scope="row")
+                            td #{val.title}
+                            td $#{val.price}
+                            td #{val.thumbnail}
+
+            a(href="/" class="btn btn-info mx-auto mt-10 text-white") Back to Form
+
